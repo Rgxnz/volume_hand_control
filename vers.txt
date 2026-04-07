@@ -1,0 +1,4 @@
+mediapipe (0.10.33)
+Available versions: 0.10.33, 0.10.32, 0.10.31, 0.10.30
+  INSTALLED: 0.10.33
+  LATEST:    0.10.33

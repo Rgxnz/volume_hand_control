@@ -8,8 +8,11 @@ class VolumeController:
         """Inicializa el control de audio de Windows a través de pycaw """
         # Acceder a los altavoces del sistema
         devices = AudioUtilities.GetSpeakers()
-        interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-        self.volume = cast(interface, POINTER(IAudioEndpointVolume))
+        if hasattr(devices, "Activate"):
+            interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
+            self.volume = cast(interface, POINTER(IAudioEndpointVolume))
+        else:
+            self.volume = devices.EndpointVolume
         
         # Obtener el rango de volumen (típicamente de -65.25 a 0.0)
         self.vol_range = self.volume.GetVolumeRange()

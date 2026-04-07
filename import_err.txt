@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import sys, traceback; f=open('import_err.txt', 'w', encoding='utf-8'); sys.stderr=f; sys.stdout=f; import mediapipe.python.solutions; f.close()
+                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'mediapipe.python'
